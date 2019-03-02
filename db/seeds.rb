@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Song.destroy_all
+ 
+100.times do |index|
+  Song.create!(artist_id: Faker::Number.within(1..100),
+              song_title: Faker::Music::Phish.song
+  )
+                
+end
+ 
+p "Created #{Song.count} songs!"

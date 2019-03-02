@@ -1,0 +1,2 @@
+module ChartDatumsHelper
+end
