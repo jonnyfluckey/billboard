@@ -1,2 +1,19 @@
-<h1>Charts#index</h1>
-<p>Find me in app/views/charts/index.html.erb</p>
+  <header>
+    <title>Billboard</title>
+
+  </header>
+
+  <body>
+  
+  <img src="https://www.savingcountrymusic.com/wp-content/uploads/2017/12/billboard.jpg" alt="Picture of Billboard Logo">
+
+
+  <h2>Please Select a Chart</h2>
+
+  <ul>
+  <% @charts.each do |chart|%>
+   <li> <%= link_to chart.chart_name, chart  %></li>
+  <% end %>
+  </ul>
+
+</body>
