@@ -1,7 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  artist_name: MyString
+  name: MyString
+  songs: 
+  top100s: 
+  top100_us: 
+  top100_eurs: 
 
 two:
-  artist_name: MyString
+  name: MyString
+  songs: 
+  top100s: 
+  top100_us: 
+  top100_eurs: 

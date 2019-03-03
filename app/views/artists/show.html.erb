@@ -12,6 +12,8 @@
 
   <p>Name: <%= @artists.artist_name %></p>
 
+  <%= link_to "Edit an Artist", edit_artist_path(@artists) %>
+
   <p>List of Songs: </p>
   <br>
   <%= link_to "Create a New Song", new_artist_song_path(@artists) %>

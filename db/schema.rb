@@ -10,38 +10,85 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_03_141107) do
+ActiveRecord::Schema.define(version: 2019_03_03_225214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artists", force: :cascade do |t|
-    t.string "artist_name"
+    t.string "name"
+    t.bigint "songs_id"
+    t.bigint "top100s_id"
+    t.bigint "top100us_id"
+    t.bigint "top100eurs_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["songs_id"], name: "index_artists_on_songs_id"
+    t.index ["top100eurs_id"], name: "index_artists_on_top100eurs_id"
+    t.index ["top100s_id"], name: "index_artists_on_top100s_id"
+    t.index ["top100us_id"], name: "index_artists_on_top100us_id"
   end
 
   create_table "charts", force: :cascade do |t|
     t.string "chart_name"
-    t.integer "rank"
-    t.integer "song_id"
-    t.string "song_title"
-    t.string "artist_name"
+    t.bigint "songs_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["songs_id"], name: "index_charts_on_songs_id"
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "song_title"
-    t.bigint "artist_id"
-    t.string "artist_name"
-    t.bigint "chart_id"
+    t.string "title"
+    t.integer "Artist_id"
+    t.bigint "artists_id"
+    t.bigint "top100s_id"
+    t.bigint "top100_us_id"
+    t.bigint "top100_eurs_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_songs_on_artist_id"
-    t.index ["chart_id"], name: "index_songs_on_chart_id"
+    t.index ["artists_id"], name: "index_songs_on_artists_id"
+    t.index ["top100_eurs_id"], name: "index_songs_on_top100_eurs_id"
+    t.index ["top100_us_id"], name: "index_songs_on_top100_us_id"
+    t.index ["top100s_id"], name: "index_songs_on_top100s_id"
   end
 
-  add_foreign_key "songs", "artists"
-  add_foreign_key "songs", "charts"
+  create_table "top100eurs", force: :cascade do |t|
+    t.integer "chart_id"
+    t.integer "song_id"
+    t.integer "artist_id"
+    t.integer "rank"
+    t.bigint "songs_id"
+    t.bigint "artists_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artists_id"], name: "index_top100eurs_on_artists_id"
+    t.index ["songs_id"], name: "index_top100eurs_on_songs_id"
+  end
+
+  create_table "top100s", force: :cascade do |t|
+    t.integer "chart_id"
+    t.integer "song_id"
+    t.integer "artist_id"
+    t.integer "rank"
+    t.bigint "songs_id"
+    t.bigint "artists_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artists_id"], name: "index_top100s_on_artists_id"
+    t.index ["songs_id"], name: "index_top100s_on_songs_id"
+  end
+
+  create_table "top100us", force: :cascade do |t|
+    t.integer "chart_id"
+    t.integer "song_id"
+    t.integer "artist_id"
+    t.integer "rank"
+    t.bigint "songs_id"
+    t.bigint "artists_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artists_id"], name: "index_top100us_on_artists_id"
+    t.index ["songs_id"], name: "index_top100us_on_songs_id"
+  end
+
 end
