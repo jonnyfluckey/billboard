@@ -44,10 +44,10 @@ class ChartsController < ApplicationController
   private
 
   def set_chart
-    @chart = Chart.find(params[:id])
+    @charts = Chart.find(params[:id])
   end
 
   def chart_params
-    params.require(:chart).permit(:chart_name)
+    params.require(:chart).permit(:chart_name, :rank, :song_id, :song_title, :artist_name)
   end
 end

@@ -1,2 +1,21 @@
-<h1>Artists#new</h1>
-<p>Find me in app/views/artists/new.html.erb</p>
+  <header>
+    <title>Billboard</title>
+
+  </header>
+
+  <body>
+  
+  <img src="https://www.savingcountrymusic.com/wp-content/uploads/2017/12/billboard.jpg" alt="Picture of Billboard Logo">
+
+
+  <h2>Please Create a New Artist</h2>
+
+ <%= form_for [@artists] do |f| %>
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name, required: true, autofocus: true %>
+  <br>
+  <br>
+  <%= f.submit %>
+  <% end %>
+
+</body>

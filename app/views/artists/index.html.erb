@@ -1,2 +1,21 @@
-<h1>Artists#index</h1>
-<p>Find me in app/views/artists/index.html.erb</p>
+  <header>
+    <title>Billboard</title>
+
+  </header>
+
+  <body>
+  
+  <img src="https://www.savingcountrymusic.com/wp-content/uploads/2017/12/billboard.jpg" alt="Picture of Billboard Logo">
+
+
+  <h2>Please Select an Artist</h2>
+
+  <ul>
+  <% @artists.each do |artist|%>
+   <li> <%= link_to artist.artist_name, artist  %></li>
+  <% end %>
+  </ul>
+
+  <%= link_to "Create an Artist", new_artist_path %>
+
+</body>

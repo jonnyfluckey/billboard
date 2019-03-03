@@ -2,6 +2,14 @@
 
 one:
   chart_name: MyString
+  rank: 1
+  song_id: 1
+  song_title: MyString
+  artist_name: MyString
 
 two:
   chart_name: MyString
+  rank: 1
+  song_id: 1
+  song_title: MyString
+  artist_name: MyString

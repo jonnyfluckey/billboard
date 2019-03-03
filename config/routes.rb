@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 resources :charts do
-  resources :chart_datums
+  resources :songs
 end
+
+resources :artists do
+  resources :songs
+end
+
 end
