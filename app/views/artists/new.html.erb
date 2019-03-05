@@ -11,8 +11,8 @@
   <h2>Please Create a New Artist</h2>
 
  <%= form_for [@artists] do |f| %>
-  <%= f.label :artist_name %>
-  <%= f.text_field :artist_name, required: true, autofocus: true %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true, autofocus: true %>
   <br>
   <br>
   <%= f.submit %>

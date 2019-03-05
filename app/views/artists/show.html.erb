@@ -10,7 +10,7 @@
 
   <h2>Artist Information</h2>
 
-  <p>Name: <%= @artists.artist_name %></p>
+  <p>Name: <%= @artists.name %></p>
 
   <%= link_to "Edit an Artist", edit_artist_path(@artists) %>
 
@@ -19,7 +19,7 @@
   <%= link_to "Create a New Song", new_artist_song_path(@artists) %>
   <ul>
   <% @songs.each do |song| %>
-    <li><%= link_to song.song_title  %></li>
+    <li><%= link_to song.title  %></li>
     <% end %>
   </ul>
 </body>

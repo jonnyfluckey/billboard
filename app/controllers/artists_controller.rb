@@ -7,7 +7,7 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    @songs = Song.where(artist_name: @artists.artist_name)
+    @songs = Song.where(Artist_id: @artists.id)
   end
 
   def new
@@ -47,6 +47,6 @@ class ArtistsController < ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:artist_name)
+    params.require(:artist).permit(:name)
   end
 end
